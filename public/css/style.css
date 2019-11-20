@@ -1,0 +1,33 @@
+/* ---------- GENERAL ---------- */
+
+body {
+    background-color: #aaa;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+.post {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #777;
+}
+
+.post p {
+    padding: 5px;
+}
+
+#comments {
+    background-color: whitesmoke;
+    box-shadow: 3px 3px #777;
+    border-radius: 5px;
+}
+
+#comments p {
+    padding: 5px;
+}
+
+#comments a {
+    color: red;
+}
