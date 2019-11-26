@@ -1,5 +1,6 @@
 <?php
 
+require_once('security.php');
 require_once('model/CommentManager.php');
 require_once('model/PostManager.php');
 
@@ -22,6 +23,8 @@ function post() {
 
 function addComment($postId, $author, $comment) {
     $commentManager = new CommentManager();
+    $author = checkContent($author);
+    $comment = checkContent($comment);
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
 
     if ($affectedLines === false) {

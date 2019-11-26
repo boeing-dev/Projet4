@@ -20,8 +20,5 @@
             </article>
             <?= $content ?>
         </section>  
-        <footer>
-            <a href="index.php?action=connexion">Administration du site</a>
-        </footer>
     </body>
 </html>

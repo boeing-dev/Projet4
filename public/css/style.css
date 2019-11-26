@@ -4,7 +4,7 @@ body {
     background-color: #aaa;
 }
 
-h1, h3 {
+h1, h3, h4 {
     text-align: center;
 }
 
@@ -30,4 +30,41 @@ h1, h3 {
 
 #comments a {
     color: red;
+}
+
+#formConnexion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em auto 0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #777;
+    background-color: whitesmoke;
+    width: 30em;
+}
+
+#passwordContainer {
+    margin: 1em 0;
+}
+
+#passwordContainer label {
+    width: 10em;
+}
+
+#passwordContainer input {
+    width: 15em;
+}
+
+
+#btnConnexion {
+    margin-bottom: 1em;
+    width: 25em;
+}
+
+footer {
+    background-color: black;
+}
+
+footer a {
+    color: whitesmoke;
 }

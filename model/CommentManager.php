@@ -18,7 +18,7 @@ class CommentManager extends Manager {
     
     public function reportComment($postId) {
         $db = $this->dbConnect();
-        $comments = $db->prepare('UPDATE comments set comment_valid=0 where id_post = ?');
+        $comments = $db->prepare('UPDATE comments set comment_valid=0 where id = ?');
         $comments->execute(array($postId));
     }
 }
