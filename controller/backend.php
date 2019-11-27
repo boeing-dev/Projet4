@@ -1,7 +1,9 @@
 <?php
 
 require_once('security.php');
-require_once('model/AccessDashboard.php');
+require_once('model/DashboardManager.php');
+require_once('model/CommentManager.php');
+require_once('model/PostManager.php');
 
 function connexion() {
     require('view/backend/logIn.php');
@@ -9,11 +11,14 @@ function connexion() {
 
 function checkPassword($password) {
     $password = checkContent($password);
-    $checkPassword = new AccessDashboard();
+    $checkPassword = new DashboardManager();
     $passwordChecked = $checkPassword->checkPass($password);
     return $passwordChecked;
 }
 
-function dashboard() {
-    require('view/backend/dashboard.php');
+function listPostsBackend() {
+    $postManager = new PostManager();
+    $post = $postManager->getPosts();
+    
+    require('view/backend/dashboardView.php');
 }

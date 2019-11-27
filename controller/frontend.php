@@ -4,10 +4,10 @@ require_once('security.php');
 require_once('model/CommentManager.php');
 require_once('model/PostManager.php');
 
-function listPosts() {
+function listPostsFrontend() {
     $postManager = new PostManager(); 
     $post = $postManager->getPosts();
-
+    
     require('view/frontend/indexView.php');
 }
 

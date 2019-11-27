@@ -4,7 +4,7 @@ require_once('Manager.php');
 class PostManager extends Manager {    
     public function getPosts() {
         $db = $this->dbConnect();    
-        $post = $db->query('SELECT id, post  FROM posts');    
+        $post = $db->query('SELECT id, post, date_post  FROM posts');    
         return $post;
     }
 
