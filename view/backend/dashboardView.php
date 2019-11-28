@@ -4,9 +4,8 @@
 <h4>Tableau de bord</h4>
 <section>
     <div id="alertComment">
-        <?= $messageCommentToValid ?>
-        <br/>
-        <a href="#">Gérer les commentaires</a>
+        <p><?= $messageCommentToValid ?></p>
+        <a href="index.php?action=commentsToValidate">Gérer les commentaires</a>
     </div>
     <?php
     while ($data = $post->fetch()) {
@@ -18,10 +17,10 @@
             <a href="#"><span class="fas fa-edit"></span> Modifier</a>
             <a href="#"><span class="fas fa-trash-alt"></span> Effacer</a>
         </article>
-        <?php 
-        }
-        $post->closeCursor();
-        ?>    
+    <?php 
+    }
+    $post->closeCursor();
+    ?>    
 </section>       
 <footer>
     <a href="index.php">Déconnection</a>

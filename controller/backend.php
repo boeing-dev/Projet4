@@ -22,8 +22,21 @@ function listActionsBackend() {
     $postComment = new CommentManager();
     $comment = $postComment->commentToValid();
     $numberComment = $postComment->commentToValid();
-    $messageCommentToValid = $postComment->messageComment($numberComment);
-    
+    $messageCommentToValid = $postComment->messageComment($numberComment);    
     
     require('view/backend/dashboardView.php');
+}
+
+function listCommentsToValidate() {
+    $commentsManager = new CommentManager();
+    $comments = $commentsManager->getCommentsBackend();
+    
+    require('view/backend/commentView.php');
+}
+
+function validComment($id, $action) {
+    $commentManager = new CommentManager();
+    $comment = $commentManager->actionValidComment($id, $action);
+    
+    header('Location: index.php?action=returnDashboard');
 }

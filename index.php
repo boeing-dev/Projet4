@@ -48,6 +48,17 @@ try {
                 listPostsFrontend();
             }
         }
+        elseif (($_GET['action'] == 'returnDashboard')) {
+            listActionsBackend();
+        }
+        elseif (($_GET['action'] == 'commentsToValidate')) {
+            listCommentsToValidate();
+        }
+        elseif (($_GET['action'] == 'validComment')) {
+            if (isset($_GET['id']) && ($_GET['val']<=1) && ($_GET['val']>=0)) {
+                validComment($_GET['id'], $_GET['val']);
+            }
+        }
     }
     else {
         listPostsFrontend();

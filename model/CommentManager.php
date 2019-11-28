@@ -2,7 +2,7 @@
 require_once('Manager.php');
 
 class CommentManager extends Manager {
-    public function getComments($postId) {
+    public function getCommentsFraontend($postId) {
     $db = $this->dbConnect();
     $comments = $db->prepare('SELECT id, author, comment, comment_valid FROM comments WHERE id_post = ?');
     $comments->execute(array($postId));
@@ -38,5 +38,27 @@ class CommentManager extends Manager {
             $message = 'Vous avez ' . $strNumber . ' commentaire(s) en attente de validation';
         }
         return $message;
+    }
+    
+    public function getCommentsBackend() {
+        $db = $this->dbConnect();
+        $comment = $db->query('SELECT id, author, comment, comment_valid, comment_date FROM comments WHERE comment_valid=0');
+        return $comment;
+    }
+    
+    public function actionValidComment($commentId, $commentState) {
+        $db = $this->dbConnect();
+        switch ($commentState) {
+            case 1 :
+                $comment = $db->prepare('UPDATE comments set comment_valid=1 WHERE id = ?');
+                $comment->execute(array($commentId));
+                break;
+            case 0 :
+                $comment = $db->prepare('DELETE FROM comments WHERE id = ?');
+                $comment->execute(array($commentId));
+                break;
+        }
+        $comment->closeCursor();
+        
     }
 }
