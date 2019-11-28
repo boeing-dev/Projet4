@@ -43,7 +43,7 @@ try {
         elseif (($_GET['action'] == 'accessDashboard') && isset($_POST['password'])) {
             $_POST['password'] = checkContent($_POST['password']);
             if (checkPassword($_POST['password'])) {
-                listPostsBackend();
+                listActionsBackend();
             } else {
                 listPostsFrontend();
             }

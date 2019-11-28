@@ -3,6 +3,11 @@
 <?php ob_start(); ?>
 <h4>Tableau de bord</h4>
 <section>
+    <div id="alertComment">
+        <?= $messageCommentToValid ?>
+        <br/>
+        <a href="#">Gérer les commentaires</a>
+    </div>
     <?php
     while ($data = $post->fetch()) {
     ?>

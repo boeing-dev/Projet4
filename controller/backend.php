@@ -16,9 +16,14 @@ function checkPassword($password) {
     return $passwordChecked;
 }
 
-function listPostsBackend() {
+function listActionsBackend() {
     $postManager = new PostManager();
     $post = $postManager->getPosts();
+    $postComment = new CommentManager();
+    $comment = $postComment->commentToValid();
+    $numberComment = $postComment->commentToValid();
+    $messageCommentToValid = $postComment->messageComment($numberComment);
+    
     
     require('view/backend/dashboardView.php');
 }
