@@ -61,4 +61,11 @@ class CommentManager extends Manager {
         $comment->closeCursor();
         
     }
+    
+    public function deleteComment($postId) {
+        $db = $this->dbConnect();
+        $comment = $db->prepare('DELETE FROM comments WHERE id_post = ?');
+        $comment->execute(array($postId));
+        $comment->closeCursor();
+    }
 }

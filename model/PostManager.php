@@ -10,9 +10,17 @@ class PostManager extends Manager {
 
     public function getPost($postId) {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, post FROM posts WHERE id = ?');
-        $req->execute(array($postId));
-        $post = $req->fetch();
+        $posts = $db->prepare('SELECT id, post, date_post FROM posts WHERE id = ?');
+        $posts->execute(array($postId));
+        $post = $posts->fetch();
         return $post;
+        $posts->closeCursor();
+    }
+    
+    public function deletePost($postId) {
+        $db = $this->dbConnect();
+        $post = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $post->execute(array($postId));
+        $post->closeCursor();
     }
 }

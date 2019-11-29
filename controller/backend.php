@@ -34,9 +34,32 @@ function listCommentsToValidate() {
     require('view/backend/commentView.php');
 }
 
-function validComment($id, $action) {
+function validComment($commentId, $commentAction) {
     $commentManager = new CommentManager();
-    $comment = $commentManager->actionValidComment($id, $action);
+    $comment = $commentManager->actionValidComment($commentId, $commentAction);
     
     header('Location: index.php?action=returnDashboard');
+}
+
+function deletePostView($postId) {
+    $postManager = new PostManager();
+    $post = $postManager->getPost($postId);
+    
+    require('view/backend/deletepostView.php');
+}
+
+function deletePostComment($postId) {
+    $postManager = new PostManager();
+    $post = $postManager->deletePost($postId);
+    $commentManager = new CommentManager();
+    $comment = $commentManager->deleteComment($postId);
+    
+    header('Location: index.php?action=returnDashboard');
+}
+
+function viewPostBackend($postId) {
+    $postManager = new PostManager();
+    $post = $postManager->getPost($postId);
+    
+    require('view/backend/postViewBackend.php');
 }

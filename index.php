@@ -59,6 +59,21 @@ try {
                 validComment($_GET['id'], $_GET['val']);
             }
         }
+        elseif (($_GET['action'] == 'deletePost')) {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deletePostView($_GET['id']);
+            }
+        } 
+        elseif (($_GET['action'] == 'deletePost_Comment')) {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deletePostComment($_GET['id']);
+            }
+        }
+        elseif (($_GET['action'] == 'viewPost')) {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                viewPostBackend($_GET['id']);    
+            }            
+        }
     }
     else {
         listPostsFrontend();

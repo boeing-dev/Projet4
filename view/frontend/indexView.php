@@ -18,6 +18,10 @@ while ($data = $post->fetch()) {
 $post->closeCursor();
 ?>
 
+<footer>
+    <a href="index.php?action=connexion">Administration du site</a>
+</footer>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>

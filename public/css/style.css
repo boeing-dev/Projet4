@@ -84,8 +84,8 @@ h1, h3, h4 {
     box-shadow: 3px 3px 3px #777;
     padding-bottom: 10px;
 }
-.postBackend h5 {
-    padding: 10px 1em 0;
+.postBackend h5, .postBackend h2 {
+    padding: 10px 12px 0;
 }
 
 .postBackend p {
@@ -95,7 +95,7 @@ h1, h3, h4 {
 }
 
 .postBackend p, .postBackend a {
-    padding: 0 1em;
+    padding: 0 12px;
 }
 
 .commentBackend {
@@ -122,8 +122,19 @@ h1, h3, h4 {
 
 footer {
     background-color: black;
+    text-align: center;
+    padding: 0.5em 0;
 }
 
 footer a {
     color: whitesmoke;
+}
+
+#footerDashboard {
+    display: flex;
+    justify-content: center;
+}
+
+#footerDashboard a {
+    padding: 0 1em;
 }
