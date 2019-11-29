@@ -74,6 +74,29 @@ try {
                 viewPostBackend($_GET['id']);    
             }            
         }
+        elseif (($_GET['action'] == 'addPostView')) {
+            require('view/backend/addPostView.php');
+        }
+        elseif (($_GET['action'] == 'addPost')) {            
+            if (!empty($_POST['post'])) {
+                $_POST['post'] = checkContent($_POST['post']);
+                addPost($_POST['post']);
+            }
+        }
+        elseif (($_GET['action'] == 'viewPostToModify')) {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                viewPostToModify($_GET['id']); 
+            }
+        }
+        elseif (($_GET['action'] == 'postToModify')) {
+            echo $_GET['id'];
+            if (isset($_GET['id']) && $_GET['id'] > 0) {                
+                if (!empty($_POST['postContent'])) {
+                    $_POST['postContent'] = checkContent($_POST['postContent']);
+                    modifyPost($_GET['id'], $_POST['postContent']);                    
+                }
+            }
+        }
     }
     else {
         listPostsFrontend();

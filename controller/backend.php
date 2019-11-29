@@ -63,3 +63,42 @@ function viewPostBackend($postId) {
     
     require('view/backend/postViewBackend.php');
 }
+
+function addPost($post) {
+    $postManager = new PostManager();
+    $post = $postManager->setPost($post);
+    
+    header('Location: index.php?action=returnDashboard');
+}
+
+function viewPostToModify($postId) {
+    $postManager = new PostManager();
+    $post = $postManager->getPost($postId);
+    
+    require('view/backend/modifyPostView.php');
+}
+
+function modifyPost($postId, $postContent) {
+    $postManager = new PostManager();
+    $post = $postManager->modifyPost($postId, $postContent);
+    
+    header('Location: index.php?action=returnDashboard');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -120,6 +120,21 @@ h1, h3, h4 {
     padding: 0 1em;
 }
 
+#formModifyPost {
+    display: flex;
+    flex-direction: column;
+}
+
+#formModifyPost textarea {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#formModifyPost input {
+    width: 95%;
+    margin: 1em auto;
+}
+
 footer {
     background-color: black;
     text-align: center;

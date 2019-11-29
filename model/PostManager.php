@@ -23,4 +23,18 @@ class PostManager extends Manager {
         $post->execute(array($postId));
         $post->closeCursor();
     }
+    
+    public function setPost($postContent) {
+        $db = $this->dbConnect();
+        $newPost = $db->prepare('INSERT INTO posts(post, date_post) VALUES (?, NOW())');
+        $newPost->execute(array($postContent));
+        $newPost->closeCursor();
+    }
+    
+    public function modifyPost($postId, $postContent) {
+        $db = $this->dbConnect();
+        $modifyPost = $db->prepare('UPDATE posts set post = ? WHERE id = ?');
+        $modifyPost->execute(array($postContent, $postId));
+        $modifyPost->closeCursor();
+    }
 }
