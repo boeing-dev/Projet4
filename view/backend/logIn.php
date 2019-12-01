@@ -12,4 +12,4 @@
 </form>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('view/backend/templateDashboard.php'); ?>
+<?php require('view/template/template.php'); ?>

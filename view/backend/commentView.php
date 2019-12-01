@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <h4>Gestion des commentaires</h4>
-<p><a href="index.php?action=returnDashboard" >Retour au tableau de bord</a></p>
+<a class="btnReturn" href="index.php?action=returnDashboard"><span class="fas fa-undo-alt"></span> Retour au tableau de bord</a>
 
 <?php 
 while($data = $comments->fetch()) {
@@ -12,8 +12,8 @@ while($data = $comments->fetch()) {
         <p> <?= nl2br(htmlspecialchars(($data['comment']))) ?><br/>
             Edité par : <?= htmlspecialchars($data['author']) ?>
         </p>
-        <a href="index.php?action=validComment&amp;id=<?= $data['id'] ?>&amp;val=1">Valider</a>
-        <a href="index.php?action=validComment&amp;id=<?= $data['id'] ?>&amp;val=0">Supprimer</a>
+        <a href="index.php?action=validComment&amp;id=<?= $data['id'] ?>&amp;val=1"><span class="fas fa-check"></span> Valider</a>
+        <a href="index.php?action=validComment&amp;id=<?= $data['id'] ?>&amp;val=0"><span class="fas fa-times"></span> Supprimer</a>
     </article>
 <?php
 }
@@ -25,4 +25,4 @@ $comments->closeCursor();
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('view/backend/templateDashboard.php'); ?>
+<?php require('view/template/template.php'); ?>

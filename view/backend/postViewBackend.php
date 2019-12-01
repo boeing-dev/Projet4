@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <h4>Lire un article</h4>
-<p><a href="index.php?action=returnDashboard" >Retour au tableau de bord</a></p>
+<a class="btnReturn" href="index.php?action=returnDashboard"><span class="fas fa-undo-alt"></span> Retour au tableau de bord</a>
 
 <article class="postBackend">
     <h5>Article posté le <?= $post['date_post'] ?></h5>
@@ -17,4 +17,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('view/backend/templateDashboard.php'); ?>
+<?php require('view/template/template.php'); ?>

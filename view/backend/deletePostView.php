@@ -8,9 +8,9 @@
     <p> 
         <?= nl2br(htmlspecialchars(($post['post']))) ?>
     </p>
-    <h2>Etes vous sûr de vouloir effacer cet article</h2>
-    <a href="index.php?action=deletePost_Comment&amp;id=<?= $post['id'] ?>">OUI</a>
-    <a href="index.php?action=returnDashboard">NON</a>
+    <h2>Etes vous sûr de vouloir effacer cet article ?</h2>
+    <a class="btnDelete" href="index.php?action=deletePost_Comment&amp;id=<?= $post['id'] ?>">EFFACER</a>
+    <a class="btnDelete" href="index.php?action=returnDashboard">ANNULER</a>
 </article>
 
 <footer>
@@ -19,4 +19,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('view/backend/templateDashboard.php'); ?>
+<?php require('view/template/template.php'); ?>

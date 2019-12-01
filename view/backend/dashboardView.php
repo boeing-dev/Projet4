@@ -7,6 +7,7 @@
         <p><?= $messageCommentToValid ?></p>
         <a href="index.php?action=commentsToValidate">Gérer les commentaires</a>
     </div>
+    <a id="btnNewPost" href="index.php?action=addPostView">Créer un nouvel article</a>
     <?php
     while ($data = $post->fetch()) {
     ?>
@@ -24,9 +25,8 @@
 </section>       
 <footer id="footerDashboard">
     <a href="index.php">Déconnection</a>
-    <a href="index.php?action=addPostView">Nouvel article</a>
 </footer>
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('view/backend/templateDashboard.php'); ?>
+<?php require('view/template/template.php'); ?>

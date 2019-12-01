@@ -8,10 +8,41 @@ h1, h3, h4 {
     text-align: center;
 }
 
+.btnReturn {
+    font-weight: 500;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background-color: black;
+    text-align: center;
+    padding: 0.5em 0;
+}
+
+footer a {
+    color: whitesmoke;
+}
+
+#footerDashboard {
+    display: flex;
+    justify-content: center;
+}
+
+#footerDashboard a {
+    padding: 0 1em;
+}
+
+/* ---------- FRONTEND ---------- */
+/* ---------- AFFICHE DE LA LISTE DES ARTICLES ---------- */
+/* ---------- AFFICHAGE D'UN ARTICLE AVEC SES COMMENTAIRES---------- */
+
 .post {
     background-color: whitesmoke;
     border-radius: 5px;
     box-shadow: 3px 3px 3px #777;
+    margin-top: 0.5em;
+    text-align: justify;
 }
 
 .post p {
@@ -31,6 +62,27 @@ h1, h3, h4 {
 #comments a {
     color: red;
 }
+
+#blockAddCommentName {
+    margin-bottom: 1em
+}
+
+#blockAddCommentContent textarea {
+    width: 100%;
+    height: 15vh;
+    overflow-y: scroll;
+}
+
+#btnAddComment {
+    text-align: center;
+}
+
+#btnAddComment input{
+    width: 50%;
+    margin: 1em auto;
+}
+
+/* ---------- AFFICHAGE DE L'INTERFACE DE CONNECTION AU DASHBOARD ---------- */
 
 #formConnexion {
     display: flex;
@@ -61,6 +113,25 @@ h1, h3, h4 {
     width: 25em;
 }
 
+/* ---------- BACKEND ---------- */
+
+/* ---------- DASHBOARD ---------- */
+
+#btnNewPost {
+    background-color: whitesmoke;
+    padding: 0.5em;
+    border-radius: 5px;
+    color: black;
+    font-weight: 500;
+    box-shadow: 3px 3px 3px #777;
+}
+
+#btnNewPost:hover {
+    text-decoration: none;
+    box-shadow: -3px -3px 3px blue;
+    color: blue;
+}
+
 #alertComment {
     background-color: whitesmoke;
     border-radius: 5px;
@@ -75,6 +146,7 @@ h1, h3, h4 {
 
 #alertComment a {
     padding: 0 1em;
+    font-weight: 500;
 }
 
 .postBackend {
@@ -98,6 +170,25 @@ h1, h3, h4 {
     padding: 0 12px;
 }
 
+.postBackend a {
+    color: black;
+    font-weight: bold;
+}
+
+.fas.fa-eye {
+    color: blue;
+}
+
+.fas.fa-edit {
+    color: orange;
+}
+
+.fas.fa-trash-alt {
+    color: red;
+}
+
+/* ---------- GESTIONNAIRE DES COMMENTAIRES ---------- */
+
 .commentBackend {
     background-color: whitesmoke;
     border-radius: 5px;
@@ -112,13 +203,26 @@ h1, h3, h4 {
 
 .commentBackend p {
     text-align: justify;
-    height: 4vw;
     overflow: auto;
 }
 
 .commentBackend p, .commentBackend a {
     padding: 0 1em;
 }
+
+.commentBackend a {
+    color: black;
+}
+
+.fas.fa-check {
+    color: green;
+}
+
+.fas.fa-times {
+    color: red;
+}
+
+/* ---------- FORMULAIRE DE MODIFICATION D'ARTICLE ---------- */
 
 #formModifyPost {
     display: flex;
@@ -128,6 +232,9 @@ h1, h3, h4 {
 #formModifyPost textarea {
     width: 95%;
     margin: 0 auto;
+    padding: 0 5px;
+    overflow-y: scroll;
+    text-align: justify;
 }
 
 #formModifyPost input {
@@ -135,21 +242,51 @@ h1, h3, h4 {
     margin: 1em auto;
 }
 
-footer {
-    background-color: black;
-    text-align: center;
-    padding: 0.5em 0;
-}
+/* ---------- FORMULAIRE D'AJOUT D'ARTICLE ---------- */
 
-footer a {
-    color: whitesmoke;
-}
-
-#footerDashboard {
+#formNewPost {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin-top: 0.5em;
 }
 
-#footerDashboard a {
-    padding: 0 1em;
+#formNewPost textarea {
+    height: 60vh;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px #777;
 }
+
+#formNewPost input {
+    width: 50%;
+    margin: 1em auto;
+    border-radius: 3px;
+}
+
+/* ---------- PAGE D'EFFACEMENT D'UN ARTICLE ---------- */
+
+h2 {
+    color: red;
+}
+
+.btnDelete {
+    border: 1px solid black;
+    margin-left: 1em;
+    padding: 3px 10px !important;
+    font-size: 1.5em;
+    border-radius: 5px;
+}
+
+.btnDelete:hover {
+    text-decoration: none;
+    color: white;
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 <?php $title = 'Chapitre'; ?>
 
 <?php ob_start() ?>
-<p><a href="index.php">Retour à la liste des chapitres</a></p>
+<a class="btnReturn" href="index.php"><span class="fas fa-undo-alt"></span> Retour à la liste des chapitres</a>
 
 <article class="post">
     <p>
@@ -28,15 +28,15 @@
 
 <h6>Ajout d'un commentaire</h6>
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-    <div>
-        <label for="author">Auteur</label><br />
+    <div id="blockAddCommentName">
+        <label for="author">Nom</label><br />
         <input type="text" id="author" name="author" />
     </div>
-    <div>
+    <div id="blockAddCommentContent">
         <label for="comment">Commentaire</label><br />
         <textarea id="comment" name="comment"></textarea>
     </div>
-    <div>
+    <div id="btnAddComment">
         <input type="submit" />
     </div>
 </form>
@@ -46,4 +46,4 @@
 </footer>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('view/frontend/template.php') ?>
+<?php require('view/template/template.php') ?>
