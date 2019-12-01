@@ -21,15 +21,17 @@ try {
                         $_POST['comment'] = checkContent($_POST['comment']);
                         addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                     } else {
-                        throw new Exception('Tous les champs ne sont pas remplis !');
+                        throw new Exception('Tous les champs ne sont pas remplis');
                     }
                 } else {
-                    throw new Exception('Aucun identifiant de billet envoyé');
+                    throw new Exception('Aucun identifiant d\'article envoyé');
                 }
             break;
             case 'reportComment' :
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     changeComment($_GET['id']);
+                } else {
+                    throw new Exception('Aucun identifiant de commentaire envoyé');
                 }
             break;
             case 'connexion' :
@@ -44,22 +46,30 @@ try {
             case 'validComment' :
                 if (isset($_GET['id']) && ($_GET['val']<=1) && ($_GET['val']>=0)) {
                     validComment($_GET['id'], $_GET['val']);
+                } else {
+                    throw new Exception('Aucun identifiant de commentaire envoyé');
                 }
             break;
             case 'deletePost' :
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     deletePostView($_GET['id']);
+                } else {
+                    throw new Exception('Aucun identifiant d\'article envoyé');
                 }
             break;
             case 'deletePost_Comment' :
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     deletePostComment($_GET['id']);
+                } else {
+                    throw new Exception('Aucun identifiant d\'article envoyé');
                 }
             break;
             case 'viewPost' :
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     viewPostBackend($_GET['id']);    
-                }    
+                } else {
+                    throw new Exception('Aucun identifiant d\'article envoyé');
+                }   
             break;
             case 'addPostView' :
                 require('view/backend/addPostView.php');
@@ -68,11 +78,15 @@ try {
                 if (!empty($_POST['post'])) {
                     $_POST['post'] = checkContent($_POST['post']);
                     addPost($_POST['post']);
+                } else {
+                    throw new Exception('L\'article est vide');
                 }
             break;
             case 'viewPostToModify' :
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     viewPostToModify($_GET['id']); 
+                } else {
+                    throw new Exception('Aucun identifiant d\'article envoyé');
                 }
             break;
             case 'postToModify' :
@@ -81,6 +95,8 @@ try {
                         $_POST['postContent'] = checkContent($_POST['postContent']);
                         modifyPost($_GET['id'], $_POST['postContent']);                    
                     }
+                }else {
+                    throw new Exception('Aucun identifiant d\'article envoyé');
                 }
             break;
             case 'accessDashboard' :
@@ -91,6 +107,8 @@ try {
                     } else {
                         listPostsFrontend();
                     }
+                }else {
+                    throw new Exception('Aucun mot de passe envoyé');
                 }
             break;
             default :
